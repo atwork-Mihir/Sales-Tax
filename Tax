@@ -1,14 +1,11 @@
-# Input List
-basket= [["1 book at 12.49","1 music CD at 14.99","1 chocolate bar at 0.85"],["1 imported box of chocolates at 10.00","1 imported bottle of perfume at 47.50"],["1 imported bottle of perfume at 27.99", "1 bottle of perfume at 18.99","1 packet of headache pills at 9.75", "1 box of imported chocolates at 11.25"]]
+import sys
 
-# Input Index
-b1 = basket[0]
-b2 = basket[1]
-b3 = basket[2]
+with open('Input1.txt') as f:
+    lines = f.readlines()
 
 
 # Defining Function for split
-def split(basket):
+def split(lines):
     import re
 
 # Reference List
@@ -20,7 +17,7 @@ def split(basket):
     tax = []
 
 # Iterating basket and spliting price and product list
-    for i in basket:
+    for i in lines:
         product = []
         price = []
         items = i.split()
@@ -69,12 +66,17 @@ def split(basket):
 
 # Returning values for tax = 'sales tax per product', Out = 'initial price + tax' , Total = 'Sum of price of all producting including tax'.
 
-total, List_of_Products, total_tax = split(b1)
+total, List_of_Products, total_tax = split(lines)
 # b1 is the variable, whose change makes changes with Input. If we change it to b2 or b3, it will show result for Input 2 and Input 3 respectively.
 # For futher use of this code, we can use a text file or an excel file with some changes and this program can be used as daily purpose grocery tax calculator.
+
+
+sys.stdout = open("test.txt", "w")
 
 print(*[i for i in List_of_Products], sep = '\n') # printing the list of products in b1 and prices after tax evaluation
 
 print('Sales Taxes:',float("{:.2f}".format(sum(total_tax)))) # printing the total Sales tax after evaluation
 
 print('Total:',float("{:.3f}".format(sum(total))))# printing Total for all prices including tax
+
+sys.stdout.close()
