@@ -24,6 +24,8 @@ Input 3:
 > 1 box of imported chocolates at 11.25
 
 Solution:
+For Problem1:
+
 Logic used for program:
 
 split Integer from String
@@ -38,3 +40,9 @@ As per the given statement, there are 4 values.
 
 My conditions were split into 4 parts to attain the final price.
 This program checks in which category the product belongs too and applies tax as per evaluation is required.
+About Input :
+There are 3 txt files named as Input1, Input2 & Input3.
+Choose a text file and take it as input.
+
+At the end, when the program is finished running you can see the output saved as a text file named as TexT on your device.
+
